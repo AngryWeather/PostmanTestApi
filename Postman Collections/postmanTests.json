@@ -519,7 +519,31 @@
 				},
 				"url": "https://fakestoreapi.com/products"
 			},
-			"response": []
+			"response": [
+				{
+					"id": "b618bdb4-05d1-4d89-bc71-7123d7872ce4",
+					"name": "Add new product",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 13.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"\",\r\n    \"category\": \"electronic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://fakestoreapi.com/products"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"responseTime": null,
+					"body": null
+				}
+			]
 		}
 	],
 	"auth": {
