@@ -410,6 +410,61 @@
 				"url": "https://fakestoreapi.com/products"
 			},
 			"response": []
+		},
+		{
+			"name": "Add new product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f29a0ad-ef24-4c03-b49c-a16b9e65736d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"var responseSchema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\"type\": \"number\"},\r",
+							"        \"title\": {\"type\": \"string\"},\r",
+							"        \"price\": {\"type\": \"number\"},\r",
+							"        \"description\": {\"type\": \"string\"},\r",
+							"        \"image\": {\"type\": \"string\"},\r",
+							"        \"category\": {\"type\": \"string\"}\r",
+							"    },\r",
+							"    \"required\": [\"title\", \"price\", \"description\", \"image\", \"category\"]\r",
+							"}\r",
+							"\r",
+							"pm.test('Add new product schema is valid', function () {\r",
+							"    pm.response.to.have.jsonSchema(responseSchema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "25eb8b6c-9052-4902-9293-e35554122823",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 13.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"\",\r\n    \"category\": \"electronic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/products"
+			},
+			"response": []
 		}
 	],
 	"auth": {
