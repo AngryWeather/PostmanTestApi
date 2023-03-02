@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "48d70826-5e39-4ecb-976d-33e692789e10",
+		"name": "FakeStoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebdbee53-72e8-407c-963d-4dd5cc2e8175",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).includes(\"application/json\");\r",
+							"})\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"var productsSchema = {\r",
+							"    \"type\": \"array\",\r",
+							"    \"items\": [{\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"id\": {\r",
+							"                \"type\": \"number\"\r",
+							"            },\r",
+							"            \"title\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"price\": {\r",
+							"                \"type\": \"number\"\r",
+							"            },\r",
+							"            \"description\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"category\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"image\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"rating\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"rate\": {\r",
+							"                        \"type\": \"number\"\r",
+							"                    },\r",
+							"                    \"count\": {\r",
+							"                        \"type\": \"number\"\r",
+							"                    }\r",
+							"                },\r",
+							"                \"required\": [\"rate\", \"count\"]\r",
+							"            }\r",
+							"        },\r",
+							"        \"required\": [\"id\", \"title\", \"price\", \"description\", \"category\",\r",
+							"                    \"image\", \"rating\"]\r",
+							"\r",
+							"    }]\r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.response.to.have.jsonSchema(productsSchema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "d5d49a81-af5a-4006-8554-4f85ae9f9858",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products"
+			},
+			"response": []
+		},
+		{
+			"name": "Get one product",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ceffe52e-956f-44db-abd7-e7eda927ae9b",
+						"exec": [
+							"pm.globals.set(\"rand\", Math.floor(1 + Math.random() * 20));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf1963c3-cebe-433f-84f1-5877439bc41f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"var productsSchema = {\r",
+							"    \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"id\": {\r",
+							"                \"type\": \"number\"\r",
+							"            },\r",
+							"            \"title\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"price\": {\r",
+							"                \"type\": \"number\"\r",
+							"            },\r",
+							"            \"description\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"category\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"image\": {\r",
+							"                \"type\": \"string\"\r",
+							"            },\r",
+							"            \"rating\": {\r",
+							"                \"type\": \"object\",\r",
+							"                \"properties\": {\r",
+							"                    \"rate\": {\r",
+							"                        \"type\": \"number\"\r",
+							"                    },\r",
+							"                    \"count\": {\r",
+							"                        \"type\": \"number\"\r",
+							"                    }\r",
+							"                },\r",
+							"                \"required\": [\"rate\", \"count\"]\r",
+							"            }\r",
+							"        },\r",
+							"        \"required\": [\"id\", \"title\", \"price\", \"description\", \"category\",\r",
+							"                    \"image\", \"rating\"]\r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.response.to.have.jsonSchema(productsSchema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "2bbceee3-102a-483c-bc6d-c50c194b00c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/{{rand}}"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0865a36a-e71b-4bc7-a11f-a7fb3b17fa4e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0a440d64-263f-480e-91d2-8a139e01b962",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
