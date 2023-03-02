@@ -248,6 +248,58 @@
 				"url": "https://fakestoreapi.com/products/category/{{randomCategory}}"
 			},
 			"response": []
+		},
+		{
+			"name": "Get products in a specific category Copy",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d7ed73d7-eb57-4964-bd65-077fa7887012",
+						"exec": [
+							"var categories = pm.globals.get(\"categories\");\r",
+							"var randomCategory = categories[Math.floor(Math.random() * categories.length)];\r",
+							"\r",
+							"pm.globals.set(\"randomCategory\", randomCategory);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c03b2627-a7e9-48d3-a09a-54fcd710850a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var categories = pm.globals.get(\"categories\");\r",
+							"var response = pm.response.json();\r",
+							"if (!categories.includes(pm.globals.get(\"category\"))) {\r",
+							"    pm.test(\"Return an empty array for nonexistent category\", function() {\r",
+							"        pm.expect(response).to.be.empty;\r",
+							"    })\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "287836b7-fa5d-49cf-a8df-6dcba0b23139",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/category/{{category}}"
+			},
+			"response": []
 		}
 	],
 	"auth": {
