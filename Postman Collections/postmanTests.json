@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "48d70826-5e39-4ecb-976d-33e692789e10",
+		"_postman_id": "b3513f5e-a148-45f2-9650-007cebdc2a7f",
 		"name": "FakeStoreAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ebdbee53-72e8-407c-963d-4dd5cc2e8175",
+						"id": "c1904910-f4f3-4690-8e02-7f7c3b69752f",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -76,7 +76,7 @@
 					}
 				}
 			],
-			"id": "d5d49a81-af5a-4006-8554-4f85ae9f9858",
+			"_postman_id": "a996eb66-944b-4c04-99cd-2e1281177931",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -93,7 +93,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ceffe52e-956f-44db-abd7-e7eda927ae9b",
+						"id": "b0a88f0b-ab83-4d97-9b50-9ae38f94f56a",
 						"exec": [
 							"pm.globals.set(\"rand\", Math.floor(1 + Math.random() * 20));\r",
 							""
@@ -104,7 +104,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bf1963c3-cebe-433f-84f1-5877439bc41f",
+						"id": "e957077f-8b9e-47db-bcbc-791f6efab780",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -157,7 +157,7 @@
 					}
 				}
 			],
-			"id": "2bbceee3-102a-483c-bc6d-c50c194b00c4",
+			"_postman_id": "222974d4-ff06-4607-880f-9d304873c85f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -174,7 +174,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9112e2a1-dbb6-4a4b-8e4a-0b2ebc6d410f",
+						"id": "5103a69c-5ffb-4885-a571-d8d66d02f50c",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -194,7 +194,7 @@
 					}
 				}
 			],
-			"id": "e8c9b879-3015-462d-b13b-3d496a3020b5",
+			"_postman_id": "6ba23920-a339-4808-86d2-6f6942277100",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -206,56 +206,12 @@
 			"response": []
 		},
 		{
-			"name": "Get products in a specific category",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "d7ed73d7-eb57-4964-bd65-077fa7887012",
-						"exec": [
-							"var categories = pm.globals.get(\"categories\");\r",
-							"var randomCategory = categories[Math.floor(Math.random() * categories.length)];\r",
-							"\r",
-							"pm.globals.set(\"randomCategory\", randomCategory);"
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "c03b2627-a7e9-48d3-a09a-54fcd710850a",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () {\r",
-							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "934fcb64-1cf5-4a60-aefc-bef44593563b",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": "https://fakestoreapi.com/products/category/{{randomCategory}}"
-			},
-			"response": []
-		},
-		{
 			"name": "Get products in a specific category Copy",
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d7ed73d7-eb57-4964-bd65-077fa7887012",
+						"id": "1dd96ab3-846b-43bc-95c8-5a245195ff46",
 						"exec": [
 							"var categories = pm.globals.get(\"categories\");\r",
 							"var randomCategory = categories[Math.floor(Math.random() * categories.length)];\r",
@@ -268,7 +224,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c03b2627-a7e9-48d3-a09a-54fcd710850a",
+						"id": "df940296-c0df-49b9-bbb3-5a2f3b2ad0cb",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -290,7 +246,7 @@
 					}
 				}
 			],
-			"id": "287836b7-fa5d-49cf-a8df-6dcba0b23139",
+			"_postman_id": "3d727ef1-17d0-43d3-a28d-de34c750d371",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -307,7 +263,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "16d28622-b6dc-47c1-a47e-b1fa08f11aa0",
+						"id": "aa9235c3-4083-4df9-bf99-f12084fee20c",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -336,7 +292,7 @@
 					}
 				}
 			],
-			"id": "7bfd0e00-f7ab-423e-83b1-67c16e56e788",
+			"_postman_id": "69745fed-05db-483c-bc69-3a9be478d940",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -362,7 +318,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "16d28622-b6dc-47c1-a47e-b1fa08f11aa0",
+						"id": "06f6043f-ba7a-4e88-ba24-acb86fb19b56",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -391,7 +347,7 @@
 					}
 				}
 			],
-			"id": "97e1b2c4-337f-42e2-9979-bfc8cc0c5703",
+			"_postman_id": "50d5a3b7-0774-4a57-a09a-2d06ef2dbcbf",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -417,7 +373,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1f29a0ad-ef24-4c03-b49c-a16b9e65736d",
+						"id": "155bfb74-cfdb-4f92-a7f5-ae0e8e34fac7",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -446,7 +402,7 @@
 					}
 				}
 			],
-			"id": "25eb8b6c-9052-4902-9293-e35554122823",
+			"_postman_id": "edb1ff03-d1e4-4df5-854b-c9f132eb1568",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -472,7 +428,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1f29a0ad-ef24-4c03-b49c-a16b9e65736d",
+						"id": "fc518526-6edc-41bd-94c1-9f210d515827",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -501,7 +457,7 @@
 					}
 				}
 			],
-			"id": "ac0c7846-b4dc-47ec-b3ed-4f794270f1eb",
+			"_postman_id": "3e9fe6b5-324f-4149-85ba-80d55244a45e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -519,31 +475,178 @@
 				},
 				"url": "https://fakestoreapi.com/products"
 			},
-			"response": [
+			"response": []
+		},
+		{
+			"name": "https://fakestoreapi.com/products/{{id}}",
+			"event": [
 				{
-					"id": "b618bdb4-05d1-4d89-bc71-7123d7872ce4",
-					"name": "Add new product",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 13.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"\",\r\n    \"category\": \"electronic\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "https://fakestoreapi.com/products"
-					},
-					"_postman_previewlanguage": null,
-					"header": null,
-					"cookie": [],
-					"responseTime": null,
-					"body": null
+					"listen": "test",
+					"script": {
+						"id": "4b639dd3-a1cd-40ce-9727-0cd9a50a0aed",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var responseSchema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\"type\": \"number\"},\r",
+							"        \"title\": {\"type\": \"string\"},\r",
+							"        \"price\": {\"type\": \"number\"},\r",
+							"        \"description\": {\"type\": \"string\"},\r",
+							"        \"image\": {\"type\": \"string\"},\r",
+							"        \"category\": {\"type\": \"string\"}\r",
+							"    },\r",
+							"    \"required\": [\"id\", \"title\", \"price\", \"description\", \"image\", \"category\"]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response schema is valid\", function() {\r",
+							"    pm.response.to.have.jsonSchema(responseSchema);\r",
+							"})\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Deletes a product with correct id\", function() {\r",
+							"    pm.expect(response.id).to.be.equal(Number(pm.globals.get(\"id\")));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"_postman_id": "f4c8fe34-3daa-4d87-8ad1-1103d5b4116f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/{{id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "https://fakestoreapi.com/products/{{id}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da267085-b65f-4e62-ae16-4ee64fe88c13",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var responseSchema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": {\"type\": \"number\"},\r",
+							"        \"title\": {\"type\": \"string\"},\r",
+							"        \"price\": {\"type\": \"number\"},\r",
+							"        \"description\": {\"type\": \"string\"},\r",
+							"        \"image\": {\"type\": \"string\"},\r",
+							"        \"category\": {\"type\": \"string\"}\r",
+							"    },\r",
+							"    \"required\": [\"id\", \"title\", \"price\", \"description\", \"image\", \"category\"]\r",
+							"}\r",
+							"\r",
+							"pm.test(\"Response schema is valid\", function() {\r",
+							"    pm.response.to.have.jsonSchema(responseSchema);\r",
+							"})\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Updates a product with the correct id\", function() {\r",
+							"    pm.expect(response.id).to.be.equal(Number(pm.globals.get(\"id\")));\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "82b892c7-9bd1-4512-965d-fb00b1033bcc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test product\",\r\n    \"price\": 13.5,\r\n    \"description\": \"lorem ipsum set\",\r\n    \"image\": \"https: //i.pravatar.cc\",\r\n    \"category\": \"electronic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakestoreapi.com/products/{{id}}"
+			},
+			"response": []
+		},
+		{
+			"name": "https://fakestoreapi.com/carts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f480ea91-324c-4a11-bb09-c1587bfad070",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var cartsSchema = {\r",
+							"    \"type\": \"array\",\r",
+							"    \"carts\": [{\r",
+							"        \"type\": \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"id\": {\"type\": \"number\"},\r",
+							"            \"userId\": {\"type\": \"number\"},\r",
+							"            \"data\": {\"type\": \"string\"},\r",
+							"            \"products\": {\"type\": \"array\"},\r",
+							"                \"product\": {\"type\": \"object\"},\r",
+							"                \"properties\": {\r",
+							"                    \"productId\": {\"type\": \"number\"},\r",
+							"                    \"quantity\": {\"type\": \"number\"}\r",
+							"                },\r",
+							"            \"__v\": {\"type\": \"number\"}\r",
+							"        }\r",
+							"    }] \r",
+							"}\r",
+							"\r",
+							"pm.test('Carts schema is valid', function () {\r",
+							"    pm.response.to.have.jsonSchema(cartsSchema);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "70ad74a4-9ba0-4b5e-a01f-0c7cb68dcb57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/carts"
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -554,7 +657,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0865a36a-e71b-4bc7-a11f-a7fb3b17fa4e",
+				"id": "ba2b337a-db6a-412f-a418-e1e41e807860",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -564,7 +667,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0a440d64-263f-480e-91d2-8a139e01b962",
+				"id": "2588ea7d-841f-4874-b2f1-56c547b57b51",
 				"type": "text/javascript",
 				"exec": [
 					""
