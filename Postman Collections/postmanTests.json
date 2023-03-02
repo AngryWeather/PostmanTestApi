@@ -204,6 +204,50 @@
 				"url": "https://fakestoreapi.com/products/categories"
 			},
 			"response": []
+		},
+		{
+			"name": "Get products in a specific category",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d7ed73d7-eb57-4964-bd65-077fa7887012",
+						"exec": [
+							"var categories = pm.globals.get(\"categories\");\r",
+							"var randomCategory = categories[Math.floor(Math.random() * categories.length)];\r",
+							"\r",
+							"pm.globals.set(\"randomCategory\", randomCategory);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c03b2627-a7e9-48d3-a09a-54fcd710850a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "934fcb64-1cf5-4a60-aefc-bef44593563b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/category/{{randomCategory}}"
+			},
+			"response": []
 		}
 	],
 	"auth": {
