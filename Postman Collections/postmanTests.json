@@ -76,7 +76,7 @@
 					}
 				}
 			],
-			"_postman_id": "d5d49a81-af5a-4006-8554-4f85ae9f9858",
+			"id": "d5d49a81-af5a-4006-8554-4f85ae9f9858",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -157,7 +157,7 @@
 					}
 				}
 			],
-			"_postman_id": "2bbceee3-102a-483c-bc6d-c50c194b00c4",
+			"id": "2bbceee3-102a-483c-bc6d-c50c194b00c4",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -165,6 +165,43 @@
 				"method": "GET",
 				"header": [],
 				"url": "https://fakestoreapi.com/products/{{rand}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all categories",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9112e2a1-dbb6-4a4b-8e4a-0b2ebc6d410f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Check length of categories\", function() {\r",
+							"    pm.expect(response.length).to.equal(4);\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "e8c9b879-3015-462d-b13b-3d496a3020b5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakestoreapi.com/products/categories"
 			},
 			"response": []
 		}
